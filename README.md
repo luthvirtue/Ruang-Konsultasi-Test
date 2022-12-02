@@ -5,8 +5,11 @@ Bagian 1.rar: UI Canvas dengan mouse.
 
 Bagian 2.rar: VR Multiplayer dengan Oculus Rift, terdapat Bagian 1 dalam mode VR.
 
-Build:
+Dikarenakan hasil build terlalu besar untuk git, hasil build diupload ke google.
+Link Build: 
 
-Bagian 1
+Bagian 1: [Download]
 
-[Bagian 2](https://drive.google.com/file/d/17ifm-taqWTvn9HHf7FexXmRpw2JzjXto/view?usp=share_link)
+Bagian 2: [Download GDrive](https://drive.google.com/file/d/17ifm-taqWTvn9HHf7FexXmRpw2JzjXto/view?usp=share_link)
+
+Testing APK untuk Oculus Quest 2 (belum diuji): [Download GDrive](https://drive.google.com/file/d/1IBXYljj2PSUjor689MXQ_8StC2_wsrfg/view?usp=share_link)
