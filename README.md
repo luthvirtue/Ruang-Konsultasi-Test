@@ -5,6 +5,8 @@ Bagian 1.rar: UI Canvas dengan mouse.
 
 Bagian 2.rar: VR Multiplayer dengan Oculus Rift, terdapat Bagian 1 dalam mode VR.
 
+
+
 Dikarenakan hasil build terlalu besar untuk git, hasil build diupload ke google.
 Link Build: 
 
