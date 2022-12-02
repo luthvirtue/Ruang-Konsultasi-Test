@@ -3,43 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+To make sure every player changes their name based on PhotonNetwork.Nickname
+***/
+
 public class CollectPlayers : MonoBehaviourPunCallbacks
 {
-    
-    void Start()
-    {
-        
-    }
-
     void Update()
-    {        
-        //testing PhotonNetwork Nickname
-        //GetPlayersName();
-
-        //set all players name
+    {
+        //set all players name on every frame
         SetAllPlayersName();
     }
 
     public void SetAllPlayersName()
     {
+        //get all players GameObject
         GameObject[] playerlist = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < playerlist.Length; i++)
         {
             Debug.Log("P: " + playerlist[i].name);
             //change all player gameobject name
             playerlist[i].name = PhotonNetwork.PlayerList[i].NickName;
-        }
-    }
-
-    public void GetPlayersName()
-    {
-        for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
-        {
-            Debug.Log("PL Nickname:" + PhotonNetwork.PlayerList[i].NickName);
-        }
-        for (int i = 0; i < PhotonNetwork.PlayerListOthers.Length; i++)
-        {
-            Debug.Log("Other Nickname:" + PhotonNetwork.PlayerListOthers[i].NickName);
         }
     }
 }
