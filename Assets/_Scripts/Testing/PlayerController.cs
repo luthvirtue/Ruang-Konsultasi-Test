@@ -29,14 +29,5 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
     }
 
-    public void VRPlayer()
-    {
-        var inputDevices = new List<InputDevice>();
-        InputDevices.GetDevices(inputDevices);
 
-        foreach(var device in inputDevices)
-        {
-            Debug.Log (string.Format("Device found with name '{0}' and role '{1}'", device.name, device.characteristics.ToString()));
-        }
-    }
 }

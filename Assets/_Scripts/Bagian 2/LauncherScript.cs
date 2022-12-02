@@ -5,12 +5,16 @@ using Photon.Pun;
 using System.Runtime.CompilerServices;
 using System.Linq;
 using Photon.Realtime;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem.XR;
 
 public class LauncherScript : MonoBehaviourPunCallbacks
 {
     public Vector3 spawnPosition;
     public PhotonView[] photonPlayer;
-    private int playerCount;
+
+    //VR variable
+    public Transform XROriginTrasform;
 
     void Start()
     {
@@ -30,19 +34,24 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         //Set player name
-        SetPlayerName();
+        SetPlayer();
         SetAllPlayersName();
     }
 
-    public void SetPlayerName()
+    public void SetPlayer()
     {
         //spawn player with random model
         int randomPlayer = Random.Range(0, photonPlayer.Length);
         GameObject player = PhotonNetwork.Instantiate(photonPlayer[randomPlayer].name, spawnPosition, Quaternion.identity);
 
+        //set player name
         string playerName = "Player" + PhotonNetwork.CurrentRoom.PlayerCount;
         PhotonNetwork.NickName = playerName;
         player.name = PhotonNetwork.NickName;
+
+        //set player into vr
+        player.transform.parent = XROriginTrasform;
+        player.transform.localPosition = spawnPosition;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

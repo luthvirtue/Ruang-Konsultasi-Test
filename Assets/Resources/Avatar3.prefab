@@ -258,7 +258,6 @@ GameObject:
   - component: {fileID: 5117829399734304431}
   - component: {fileID: 5117829399734304428}
   - component: {fileID: 5789235586773231735}
-  - component: {fileID: 7427522928680509276}
   m_Layer: 0
   m_Name: Avatar3
   m_TagString: Player
@@ -335,20 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7427522928680509276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5117829399734304433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17aa4da9483c0434196ed9ee6998b22e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  cameraTransform: {fileID: 8543587458215509840}
 --- !u!1 &5117829399739709262
 GameObject:
   m_ObjectHideFlags: 0

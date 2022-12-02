@@ -1,27 +1,44 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))] //using Player Input for movement control
-public class PlayerMovement : MonoBehaviour
+//Actions = Default Controls
+//Behaviour = Invoke Unity Events
+
+public class PlayerMovement : MonoBehaviourPunCallbacks
 {
-    CharacterController character;
     Vector3 moveVector;
     Vector3 rotateVector;
 
+    public Transform cameraTransform;
+
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float rotationSpeed = 60f;
+    [SerializeField] float rotationSpeed = 100f;
 
     void Start()
     {
-        character = GetComponent<CharacterController>();
+
     }
 
     void FixedUpdate()
     {
-        transform.Translate(moveVector * moveSpeed * Time.fixedDeltaTime);
-        transform.Rotate(rotateVector * rotationSpeed * Time.fixedDeltaTime);
+        if (photonView.IsMine)
+        {
+            transform.Translate(moveVector * moveSpeed * Time.fixedDeltaTime);
+            transform.Rotate(rotateVector * rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (photonView.IsMine)
+        {
+            Camera.main.transform.position = cameraTransform.position;
+            Camera.main.transform.eulerAngles = cameraTransform.eulerAngles;
+        }
     }
 
     //to be called in PlayerInput.Move
@@ -29,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 direction = context.ReadValue<Vector2>();
         Debug.Log("direction: " + direction);
-        rotateVector = new Vector3(0, direction.y, 0);
+        rotateVector = new Vector3(0, direction.x, 0);
     }
 
     //to be called in PlayerInput.Rotate
