@@ -7,7 +7,8 @@ Bagian 2.rar: VR Multiplayer dengan Oculus Rift, terdapat Bagian 1 dalam mode VR
 
 
 
-Dikarenakan hasil build terlalu besar untuk git, hasil build diupload ke Google Drive.
+Dikarenakan hasil build terlalu besar untuk git, hasil build juga diupload ke Google Drive selain menggunakan git lfs.
+
 Link Build: 
 
 Bagian 1: [Download GDrive](https://drive.google.com/file/d/1JAQQfkpL-Y6g50pALIe5JbvpSASfqj93/view?usp=share_link)
