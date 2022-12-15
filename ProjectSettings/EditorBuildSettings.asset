@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Bagian2.unity
-    guid: c19773ce6913ddd49acd526ef51bcb7a
+    path: Assets/_Scenes/Bagian3.unity
+    guid: 325b8a2e65e8ab64eaee103750c566f5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

@@ -10,11 +10,14 @@ using UnityEngine.InputSystem.XR;
 
 public class LauncherScript : MonoBehaviourPunCallbacks
 {
-    public Vector3 spawnPosition;
     public PhotonView[] photonPlayer;
 
     //VR variable
-    public Transform XROriginTrasform;
+    public Transform XROriginTransform;
+
+    //Position Lock
+    public Vector3 spawnPosition;
+    public LockAvatarPosition lockAvatarPosition;
 
     void Start()
     {
@@ -26,14 +29,17 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     {
         //connected to PUN
         Debug.Log("Connected to Master");
+    }
 
+    public void JoinRoomButton()
+    {
         //Joining single room
         PhotonNetwork.JoinRandomOrCreateRoom();
     }
 
     public override void OnJoinedRoom()
     {
-        //Set player name
+        //Set player name)
         SetPlayer();
         SetAllPlayersName();
     }
@@ -42,16 +48,19 @@ public class LauncherScript : MonoBehaviourPunCallbacks
     {
         //spawn player with random model
         int randomPlayer = Random.Range(0, photonPlayer.Length);
-        GameObject player = PhotonNetwork.Instantiate(photonPlayer[randomPlayer].name, spawnPosition, Quaternion.identity);
+        GameObject playerAvatar = PhotonNetwork.Instantiate(photonPlayer[randomPlayer].name, spawnPosition, Quaternion.identity);
 
         //set player name
         string playerName = "Player" + PhotonNetwork.CurrentRoom.PlayerCount;
         PhotonNetwork.NickName = playerName;
-        player.name = PhotonNetwork.NickName;
+        playerAvatar.name = PhotonNetwork.NickName;
 
         //set player into vr
-        player.transform.parent = XROriginTrasform;
-        player.transform.localPosition = spawnPosition;
+        playerAvatar.transform.parent = XROriginTransform;
+        playerAvatar.transform.localPosition = spawnPosition;
+
+        //lockAvatarPositon;
+        lockAvatarPosition.target = playerAvatar;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
